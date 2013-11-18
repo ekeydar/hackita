@@ -1,6 +1,6 @@
 import bottle
 import os
-from bottle import route, run, template, post,request, redirect
+from bottle import route, template, post,request, redirect, default_app
 
 tpl_dir = os.path.join(os.path.abspath(os.path.dirname(__file__)),"templates")
 
@@ -29,6 +29,5 @@ def get_multi_html(num):
 def index():
     return template('form.html')
 
-bottle.TEMPLATES.clear()
-run(host='localhost', port=8080,reloader=True)
+app = default_app()
 
