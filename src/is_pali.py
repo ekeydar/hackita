@@ -1,3 +1,4 @@
+import unittest
 def is_palindrom(word):
     if len(word) < 1:
         return True
@@ -9,13 +10,16 @@ def is_palindrom(word):
         return is_palindrom(word[1:-1])
     return False
 
-assert is_palindrom("aba")
-assert not is_palindrom("abaa")
-assert is_palindrom("")
-assert is_palindrom("a")
+class PaliTests(unittest.TestCase):
+    def test_basic(self):
+        self.assertTrue(is_palindrom("aba"))
+        self.assertFalse(is_palindrom("abaa"))
+        self.assertTrue(is_palindrom(""))
+        self.assertTrue(is_palindrom("a"))
+    
+    def test_nonalpha(self):
+        self.assertTrue(is_palindrom("ab a"))
+        self.assertTrue(is_palindrom("ab,a"))
+        
+        
 
-assert is_palindrom(("ab a"))
-assert is_palindrom(("ab,a"))
-
-
-print __name__ + " OK!"

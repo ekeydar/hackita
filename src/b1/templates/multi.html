@@ -1,0 +1,23 @@
+<html>
+	<style type="text/css">
+	td
+	{ 
+		text-align:right;
+	}
+	</style>
+	<head>
+		<title>Multi for {{num}}</title>
+	</head>
+	<body>
+		<h1>Multipication table for {{num}}</h1>
+		<table>
+			% for line in table:
+			<tr>
+				% for item in line:
+				<td rows="8" cols="40" rows="8" cols="40">{{item}}</td>
+				% end
+			</tr>
+			% end
+		</table>
+	</body>
+</html>
